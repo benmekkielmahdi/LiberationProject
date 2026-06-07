@@ -1276,23 +1276,28 @@ body.dark-mode .toast {
     gap: 1rem;
   }
 
-  /* Reorder: move stats section below the room grid on mobile */
+  /* Push stats to bottom on mobile */
   .container {
     display: flex;
     flex-direction: column;
   }
 
   .stats-section {
-    order: 3; /* Push below tabs and grid */
-    margin-top: 0.5rem;
+    order: 10; /* Goes to the very bottom */
+    margin-top: 1rem;
+    margin-bottom: 0;
   }
 
-  nav.dorm-tabs {
+  .dorm-tabs {
     order: 1;
   }
 
   .navigation-layout {
     order: 2;
+  }
+
+  .app-footer {
+    order: 11;
   }
 }
 
