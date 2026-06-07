@@ -1275,6 +1275,25 @@ body.dark-mode .toast {
     padding: 1.25rem;
     gap: 1rem;
   }
+
+  /* Reorder: move stats section below the room grid on mobile */
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stats-section {
+    order: 3; /* Push below tabs and grid */
+    margin-top: 0.5rem;
+  }
+
+  nav.dorm-tabs {
+    order: 1;
+  }
+
+  .navigation-layout {
+    order: 2;
+  }
 }
 
 /* ==========================================================================
