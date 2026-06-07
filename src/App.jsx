@@ -131,8 +131,11 @@ function App() {
     return initial;
   });
 
-  const [activeDorm, setActiveDorm] = useState('A');
-  const [activeFloor, setActiveFloor] = useState(0);
+  const [activeDorm, setActiveDorm] = useState(() => localStorage.getItem('ibn_timya_active_dorm') || 'A');
+  const [activeFloor, setActiveFloor] = useState(() => {
+    const saved = localStorage.getItem('ibn_timya_active_floor');
+    return saved !== null ? parseInt(saved, 10) : 0;
+  });
   const [toastMessage, setToastMessage] = useState(null);
   const [darkMode, setDarkMode] = useState(true);
   const [confirmDialog, setConfirmDialog] = useState(null); // { message, onConfirm }
@@ -624,7 +627,10 @@ function App() {
               <div 
                 key={letter} 
                 className={`dorm-tab ${activeDorm === letter ? 'active' : ''}`}
-                onClick={() => setActiveDorm(letter)}
+                onClick={() => {
+                  setActiveDorm(letter);
+                  localStorage.setItem('ibn_timya_active_dorm', letter);
+                }}
               >
                 <span className="dorm-tab-letter">Dortoir {letter}</span>
                 <span className="dorm-tab-label">{stats.validated} / {stats.total} Vérifiées</span>
@@ -645,7 +651,10 @@ function App() {
                   <button
                     key={floor.id}
                     className={`floor-button ${activeFloor === floor.id ? 'active' : ''}`}
-                    onClick={() => setActiveFloor(floor.id)}
+                    onClick={() => {
+                      setActiveFloor(floor.id);
+                      localStorage.setItem('ibn_timya_active_floor', floor.id);
+                    }}
                   >
                     <span>{floor.label}</span>
                     <span className="floor-badge-count">{stats.validated} / {stats.total}</span>
