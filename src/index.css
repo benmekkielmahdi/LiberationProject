@@ -1275,30 +1275,6 @@ body.dark-mode .toast {
     padding: 1.25rem;
     gap: 1rem;
   }
-
-  /* Push stats to bottom on mobile */
-  .container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .stats-section {
-    order: 10; /* Goes to the very bottom */
-    margin-top: 1rem;
-    margin-bottom: 0;
-  }
-
-  .dorm-tabs {
-    order: 1;
-  }
-
-  .navigation-layout {
-    order: 2;
-  }
-
-  .app-footer {
-    order: 11;
-  }
 }
 
 /* ==========================================================================
