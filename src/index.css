@@ -1275,6 +1275,30 @@ body.dark-mode .toast {
     padding: 1.25rem;
     gap: 1rem;
   }
+
+  /* On mobile: dissolve the stats-section grid wrapper so cards
+     can be individually ordered inside .container */
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stats-section {
+    display: contents; /* cards become direct flex children of .container */
+  }
+
+  .overview-card {
+    order: 0; /* stays at the very top */
+  }
+
+  .dorms-breakdown-card {
+    order: 10; /* goes to the very bottom */
+    margin-top: 1rem;
+  }
+
+  .dorm-tabs        { order: 1; }
+  .navigation-layout { order: 2; }
+  .app-footer        { order: 11; }
 }
 
 /* ==========================================================================

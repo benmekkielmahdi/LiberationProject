@@ -595,7 +595,7 @@ function App() {
           </div>
 
           {/* Dorm Breakdown Progress */}
-          <div className="stats-card">
+          <div className="stats-card dorms-breakdown-card">
             <div className="dorms-grid">
               {dorms.map(letter => {
                 const stats = getDormStats(letter);
